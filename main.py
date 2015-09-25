@@ -14,6 +14,11 @@ def get_links(url):
     j = requests.get(url).json() # jsonify tag API query
     return [obj["link"] for obj in j["data"]] # get all links from ^
 
+# for flexibility
+def get_storage(default="static/"):
+    return default
+
 raw_url = build_url(tag="tucson")
 links = get_links(raw_url)
 print(links)
+path = get_storage()
