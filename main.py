@@ -1,11 +1,21 @@
-# from instagram.client import InstagramAPI
+from bs4 import BeautifulSoup
 import os
+import selenium.webdriver as webdriver
+import requests
 
-# access_token = "" # add IG access token
-client_secret = tIG_CLIENT_SECRET # add IG client secret (env var)
-# api = InstagramAPI(access_token=access_token, client_secret=client_secret)
+# access_token = # add IG access token
+client_id = os.environ['tIG_CLIENT_ID'] # IG client id (env var)
+INSTAGRAM_API = 'https://api.instagram.com/v1/'
+# call_IG(tag="tucson")
 
-def call_IG(tag=""):
-    # RESTful api
-    # https://instagram.com/developer/endpoints/tags/
-    pass
+def call_IG(tag="nofilter"):
+    # ugly string concat for 'recent' results of provided tag.
+    url = INSTAGRAM_API + 'tags/' + tag + "/media/recent?client_id=" + client_id
+    driver = webdriver.Firefox()
+    driver.get(url)
+    soup = BeautifulSoup(driver.page_source)
+
+    for x in soup.findAll('li', {'class':'photo'}):
+        print x
+
+call_IG(tag="tucson")
