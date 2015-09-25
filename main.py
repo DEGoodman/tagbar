@@ -11,9 +11,8 @@ def build_url(tag="nofilter"):
     return INSTAGRAM_API + 'tags/' + tag + "/media/recent?client_id=" + client_id
 
 def get_links(url):
-    page = requests.get(url)
-    j = page.json()
-    return [obj["link"] for obj in j["data"]]
+    j = requests.get(url).json() # jsonify tag API query
+    return [obj["link"] for obj in j["data"]] # get all links from ^
 
 raw_url = build_url(tag="tucson")
 links = get_links(raw_url)
