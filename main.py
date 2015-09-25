@@ -21,5 +21,7 @@ def get_page(url):
     # pprint(j)
     y = yaml.load(str(soup))
     pprint(y)
+    pprint(y['link'])
+
 raw_url = build_url(tag="tucson")
 page = get_page(raw_url)
