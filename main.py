@@ -1,7 +1,7 @@
 from pprint import pprint
 import os
 import requests
-
+import sys
 # access_token = # add IG access token
 client_id = os.environ['tIG_CLIENT_ID'] # IG client id (env var)
 INSTAGRAM_API = 'https://api.instagram.com/v1/'
@@ -18,7 +18,11 @@ def get_links(url):
 def get_storage(default="static/"):
     return default
 
-raw_url = build_url(tag="tucson")
+#enter a tab when calling the program
+raw_url = build_url(tag=sys.argv[1])
+print("looking for \'%s\'." % sys.argv[1])
 links = get_links(raw_url)
 print(links)
 path = get_storage()
+
+# if __name__
