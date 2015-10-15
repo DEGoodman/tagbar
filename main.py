@@ -4,8 +4,7 @@ import os
 import requests
 import sys
 import urllib
-import urllib2
-import urllib3
+
 
 client_id = os.environ['tIG_CLIENT_ID'] # IG client id (env var)
 client_secret = os.environ['tIG_CLIENT_SECRET'] # IG client secret (env var)
@@ -39,4 +38,3 @@ recent = api.tag_recent_media(20, 1000000000, tag_name)
 for media in recent[0]:
     keep(media.images['standard_resolution'].url)
 pprint("Downloaded %s images" % len(recent[0]))
-
