@@ -24,9 +24,6 @@ class Setup:
             self.keep(media.images['standard_resolution'].url)
         pprint("Downloaded %s images" % len(self.recent[0]))
 
-        # pass back our images dir so we don't have to keep querying it
-        return self.images
-
     def housekeeping(self):
         filelist = [ f for f in os.listdir(self.images + ".") if f.endswith(".jpg") ]
         pprint("Removing old image files.")
