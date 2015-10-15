@@ -1,4 +1,5 @@
 import os,sys
+import numpy
 
 from PIL import Image
 from pprint import pprint
