@@ -19,7 +19,6 @@ class Analyze():
     # see: https://stackoverflow.com/questions/17291455/how-to-get-an-average-picture-from-100-pictures-using-pil
     def combine(self):
         imlist=self.imlist
-        pprint(imlist)
         # Assuming all images are the same size, get dimensions of first image
         w,h=Image.open(imlist[0]).size
         N=len(imlist)
@@ -38,4 +37,4 @@ class Analyze():
         # Generate, save and preview final image
         out=Image.fromarray(arr,mode="RGB")
         out.save("images/Average.png")
-        out.show()
+        # out.show()

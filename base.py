@@ -1,5 +1,6 @@
-import analyzer
+from analyzer import Analyze
 import get_ig_photos
+import process
 
 import os
 import sys
@@ -9,7 +10,9 @@ def main():
     # get_ig_photos.Setup()
     cur = os.getcwd()
     img_dir = cur + '/images/'
-    analyzer.Analyze(img_dir)
+    img_loc = Analyze(img_dir)
+    process.compile(img_dir + "Average.png")
+
 
 if  __name__ =='__main__':
     main()
