@@ -10,8 +10,8 @@ def main():
     # get_ig_photos.Setup()
     cur = os.getcwd()
     img_dir = cur + '/images/'
-    img_loc = Analyze(img_dir)
-    process.compile(img_dir + "Average.png")
+    # img_loc = Analyze(img_dir)
+    process.compile(img_dir + "Average.jpg")
 
 
 if  __name__ =='__main__':
