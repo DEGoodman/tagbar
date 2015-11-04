@@ -1,0 +1,14 @@
+<html>
+    <head>
+      {% if title and state %}
+      <title>{{ title }} - {{ state }}</title>
+      {% else %}
+      <title>Welcome to the tagbar</title>
+      {% endif %}
+    </head>
+  <body>
+    <div>Tag search: <a href="/index">Home</a></div>
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>
