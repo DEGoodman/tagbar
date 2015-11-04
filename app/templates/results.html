@@ -1,13 +1,5 @@
-<html>
-  <head>
-    {% if title and state %}
-    <title>{{ title }} - {{ state }}</title>
-    {% else %}
-    <title>You searched something!</title>
-    {% endif %}
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block content %}
     <h1>You searched something!</h1>
     <div> You searched for {{ hashtag }}</div>
-  </body>
-</html>
+{% endblock %}
