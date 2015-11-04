@@ -11,6 +11,7 @@ Next: Create photo analyzer file
 
 ##### To run the Program
  - Ensure all packages are installed
+ - Pillow can be a pain to install, and is one of the core ackages for this app. See here:[Pillow Installation](https://pillow.readthedocs.org/en/3.0.x/installation.html)
 
 ```
 $ pip install -r requirements.txt
