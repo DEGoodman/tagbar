@@ -1,5 +1,7 @@
 <html>
     <head>
+      <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="../static/main.css" />
       {% if title and state %}
       <title>{{ title }} - {{ state }}</title>
       {% else %}
@@ -7,8 +9,7 @@
       {% endif %}
     </head>
   <body>
-    <div>Tag search: <a href="/index">Home</a></div>
-    <hr>
+    <!-- <div>Tag search: <a href="/index">Home</a></div> -->
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         <ul>
