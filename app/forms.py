@@ -4,4 +4,3 @@ from wtforms.validators import DataRequired
 
 class TagForm(Form):
     tag = StringField('tag', validators=[DataRequired()])
-    remember_me = BooleanField('remember_me', default=False)

@@ -1,6 +1,7 @@
 from flask import request, render_template, flash, redirect, url_for
 from app import app
 from .forms import TagForm
+from .get_ig_photos import Setup
 
 @app.route('/')
 @app.route('/index')
@@ -11,11 +12,11 @@ def index():
                            state=state)
 
 @app.route('/query', methods=['GET', 'POST'])
-def login():
+def search():
     form = TagForm()
     if form.validate_on_submit():
-        flash("Provided tag: %s, remember_me=%s'" %
-            (form.tag.data, str(form.remember_me.data)))
+        flash("Provided tag: %s" % form.tag.data)
+        cols = Setup(form.tag.data)
         return redirect(url_for('results',tag=form.tag.data))
     return render_template('query.html',
                            title='Tag Search',
