@@ -5,8 +5,8 @@ import numpy
 from PIL import Image, ImagePalette
 from pprint import pprint
 
-def compile(img):
-    im = Image.open(img)
+def compile():
+    im = Image.open(os.getcwd() + '/app/static/images/Average.jpg') # hardcoded avg file
     w, h = im.size
     hist = im.histogram()
     arr=numpy.zeros((h,w,3),numpy.float)
@@ -34,9 +34,10 @@ def compile(img):
     # # brightness
     # hsv['v'] = 80
     # pprint(hsv)
-    # 
+    #
     quantized = im.quantize(colors=5, kmeans=3)
     convert_rgb = quantized.convert('RGB')
     colors = convert_rgb.getcolors(w*h);
-    main_color = sorted(colors)
-    print(main_color)
+    main_colors = sorted(colors)[::-1] # reverse sort the list
+    print(main_colors)
+    return main_colors

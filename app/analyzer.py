@@ -5,16 +5,18 @@ from PIL import Image
 from pprint import pprint
 
 class Analyze():
-    def __init__(self, img_dir):
+    def __init__(self):
+        self.cur = os.getcwd()
+        self.img_dir = self.cur + '/app/static/images/'
         self.imlist = []
-        self.getImages(img_dir)
+        self.getImages()
         self.combine()
 
-    def getImages(self, img_dir):
+    def getImages(self):
         # for img in self.filelist:
         #     self.imlist.append(Image.open(img_dir + img))
-        allfiles=os.listdir(img_dir)
-        self.imlist=[img_dir + filename for filename in allfiles if  filename[-4:] in [".jpg",".JPG"]]
+        allfiles=os.listdir(self.img_dir)
+        self.imlist=[self.img_dir + filename for filename in allfiles if  filename[-4:] in [".jpg",".JPG"]]
 
     # see: https://stackoverflow.com/questions/17291455/how-to-get-an-average-picture-from-100-pictures-using-pil
     def combine(self):
@@ -36,5 +38,5 @@ class Analyze():
 
         # Generate, save and preview final image
         out=Image.fromarray(arr,mode="RGB")
-        out.save("images/Average.jpg")
+        out.save(self.img_dir + "Average.jpg")
         # out.show()

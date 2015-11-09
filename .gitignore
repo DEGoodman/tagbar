@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 images/
+*static/images/
 lib/
 lib64/
 parts/
@@ -56,3 +57,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# conf files
+config.py
+*.cfg
