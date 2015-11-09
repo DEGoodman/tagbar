@@ -2,6 +2,7 @@ from flask import request, render_template, flash, redirect, url_for
 from app import app
 from .forms import TagForm
 from .get_ig_photos import Setup
+from .analyzer import Analyze
 
 @app.route('/')
 @app.route('/index')
@@ -16,7 +17,9 @@ def search():
     form = TagForm()
     if form.validate_on_submit():
         flash("Provided tag: %s" % form.tag.data)
-        cols = Setup(form.tag.data)
+        # the below line will import new images by tag. Commenting out for dev
+        # Setup(form.tag.data)
+        Analyze()
         return redirect(url_for('results',tag=form.tag.data))
     return render_template('query.html',
                            title='Tag Search',
