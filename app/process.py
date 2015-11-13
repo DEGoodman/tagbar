@@ -12,16 +12,16 @@ def compile():
     arr=numpy.zeros((h,w,3),numpy.float)
 
     # split into red, green, blue
-    r = hist[0:256]
-    g = hist[256:256*2]
-    b = hist[256*2: 256*3]
-
-    rgb_vals = {
-        'r': sum( i*w for i, w in enumerate(r) ) / sum(r),
-        'g': sum( i*w for i, w in enumerate(g) ) / sum(g),
-        'b': sum( i*w for i, w in enumerate(b) ) / sum(b)
-    }
-    pprint(rgb_vals)
+    # r = hist[0:256]
+    # g = hist[256:256*2]
+    # b = hist[256*2: 256*3]
+    #
+    # rgb_vals = {
+    #     'r': sum( i*w for i, w in enumerate(r) ) / sum(r),
+    #     'g': sum( i*w for i, w in enumerate(g) ) / sum(g),
+    #     'b': sum( i*w for i, w in enumerate(b) ) / sum(b)
+    # }
+    # pprint(rgb_vals)
     # hsv_vals = colorsys.rgb_to_hsv(rgb_vals['r'], rgb_vals['g'], rgb_vals['b'])
     # pprint(hsv_vals)
 
@@ -39,5 +39,4 @@ def compile():
     convert_rgb = quantized.convert('RGB')
     colors = convert_rgb.getcolors(w*h);
     main_colors = sorted(colors)[::-1] # reverse sort the list
-    print(main_colors)
     return main_colors

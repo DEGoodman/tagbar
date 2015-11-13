@@ -4,6 +4,7 @@ from .forms import TagForm
 from .get_ig_photos import Setup
 from .analyzer import Analyze
 import process
+import cssmaker
 
 @app.route('/')
 @app.route('/index')
@@ -22,6 +23,7 @@ def search():
         # Setup(form.tag.data)
         Analyze()
         cols = [process.compile()]
+        cssmaker.make(cols)
         return redirect(url_for('results',tag=form.tag.data, main_cols=cols))
     return render_template('query.html',
                            title='Tag Search',

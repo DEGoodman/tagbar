@@ -38,3 +38,9 @@ a.button {
     color: initial;
     right: 80px;
 }
+
+#col_area {
+    float: left;
+    width: 20px;
+    height: 20px;
+}
