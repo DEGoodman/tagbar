@@ -20,7 +20,7 @@ def search():
     if form.validate_on_submit():
         flash("Provided tag: %s" % form.tag.data)
         # the below line will import new images by tag. Commenting out for dev
-        # Setup(form.tag.data)
+        Setup(form.tag.data)
         Analyze()
         cols = [process.compile()]
         cssmaker.make(cols)
