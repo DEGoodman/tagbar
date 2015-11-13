@@ -6,19 +6,20 @@ import sys
 import urllib
 
 class Setup:
-    def __init__(self):
+    def __init__(self, tag_name):
         self.client_id = os.environ['tIG_CLIENT_ID'] # IG client id (env var)
         self.client_secret = os.environ['tIG_CLIENT_SECRET'] # IG client secret (env var)
         self.api = InstagramAPI(client_id=self.client_id, client_secret=self.client_secret)
 
         #system vars
         self.cur = os.getcwd()
-        self.images = self.cur + '/images/'
+        self.images = self.cur + '/app/static/images/'
         self.housekeeping()
-        self.tag_name=sys.argv[1]
+        self.tag_name=tag_name
         pprint("looking for \'%s\'..." % self.tag_name)
-        # return last 20 photos of tag
-        self.recent = self.api.tag_recent_media(20, 1000000000, self.tag_name)
+        # return last photo of tag
+        # this is because the colrs turn out better
+        self.recent = self.api.tag_recent_media(1, 1000000000, self.tag_name)
         # recent[0] is list of returned media
         for media in self.recent[0]:
             self.keep(media.images['standard_resolution'].url)
@@ -35,5 +36,3 @@ class Setup:
         # create new file for img
         with open(self.images + name, 'w'):
             urllib.urlretrieve(img, self.images + name)
-
-   
