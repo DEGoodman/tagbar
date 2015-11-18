@@ -12,7 +12,7 @@ argparse==1.3.0
 backports.ssl-match-hostname==3.4.0.2
 beautifulsoup4==4.3.2
 certifi==14.05.14
-conda==unknown
+conda==3.17
 csvkit==0.9.1
 dbf==0.94.003
 dropbox==3.27
@@ -21,7 +21,7 @@ gunicorn==19.3.0
 httplib2==0.9.1
 ipython==2.4.1
 itsdangerous==0.24
-jdcal==1.0
+jdcal==1.2
 lxml==3.4.2
 nose==1.3.4
 numpy==1.10.1
@@ -29,7 +29,7 @@ openpyxl==2.2.0-b1
 pandas==0.15.2
 pbr==0.11.0
 pep8==1.5.7
-powerline-status==2.2.dev9999
+powerline-status>=2.2
 pycosat==0.6.0
 python-dateutil==2.2
 python-instagram==1.3.2
@@ -39,7 +39,6 @@ six==1.9.0
 stevedore==1.4.0
 tornado==4.1
 urllib3==1.12
-vboxapi==1.0
 virtualenv==1.11.6
 virtualenv-clone==0.2.5
 virtualenvwrapper==4.5.1
