@@ -1,5 +1,6 @@
 from instagram.client import InstagramAPI
 from pprint import pprint
+import ConfigParser
 import os
 import requests
 import sys
@@ -7,8 +8,11 @@ import urllib
 
 class Setup:
     def __init__(self, tag_name):
-        self.client_id = os.environ['tIG_CLIENT_ID'] # IG client id (env var)
-        self.client_secret = os.environ['tIG_CLIENT_SECRET'] # IG client secret (env var)
+        # import keys
+        config = ConfigParser.RawConfigParser()
+        config.read("settings.cfg")
+        self.client_id = config.get('instagram', 'client_id') # IG client id (settings.cfg)
+        self.client_secret = config.get('instagram', 'client_secret') # IG client secret (^)
         self.api = InstagramAPI(client_id=self.client_id, client_secret=self.client_secret)
 
         #system vars
