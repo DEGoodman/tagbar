@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="cover-container">
+  <div class="masthead clearfix">
+    <div class="inner">
+      <h3 class="masthead-brand">Tagbar</h3>
+      <nav>
+        <ul class="nav masthead-nav">
+          <li><a href="/index">Home</a></li>
+          <li><a href="/query">Search</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
     <h1>You searched something!</h1>
     <div> You searched for {{ hashtag }}</div>
     <div> The most common colors are: {{ colors }}</div>

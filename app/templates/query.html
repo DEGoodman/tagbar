@@ -2,6 +2,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="cover-container">
+  <div class="masthead clearfix">
+    <div class="inner">
+      <h3 class="masthead-brand">Tagbar</h3>
+      <nav>
+        <ul class="nav masthead-nav">
+          <li><a href="/index">Home</a></li>
+          <li class="active"><a href="/query">Search</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
   <h1>Tag Search</h1>
   <form action="" method="post" name="tagsearch">
       {{ form.hidden_tag() }}
