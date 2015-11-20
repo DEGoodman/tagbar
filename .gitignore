@@ -1,5 +1,6 @@
 venv/
 *.pyc
+images/
 # comment out both below for heroku pushes
 *settings*
 *config*
