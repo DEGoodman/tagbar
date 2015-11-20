@@ -1,6 +1,7 @@
 .color-swatches {
 	margin: 5px 0px -5px 0px;
-	overflow: hidden;
+	width:550px;
+	overflow:hidden;
 }
 .color-swatch {
 	float: left;
@@ -10,22 +11,22 @@
 	height: 100px;
 }
 #a {
-	background-color: rgb(48, 95, 96);
+	background-color: rgb(243, 240, 235);
 }
 
 #b {
-	background-color: rgb(17, 61, 66);
+	background-color: rgb(16, 13, 9);
 }
 
 #c {
-	background-color: rgb(86, 131, 121);
+	background-color: rgb(212, 207, 199);
 }
 
 #d {
-	background-color: rgb(138, 179, 164);
+	background-color: rgb(74, 69, 60);
 }
 
 #e {
-	background-color: rgb(193, 221, 207);
+	background-color: rgb(146, 141, 131);
 }
 
