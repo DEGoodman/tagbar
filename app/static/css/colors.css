@@ -1,0 +1,32 @@
+.color-swatches {
+	margin: 5px 0px -5px 0px;
+	width:550px;
+	overflow:hidden;
+}
+.color-swatch {
+	float: left;
+	margin: 0px 5px;
+	border-radius: 3px;
+	width: 100px;
+	height: 100px;
+}
+#a {
+	background-color: rgb(243, 240, 235);
+}
+
+#b {
+	background-color: rgb(16, 13, 9);
+}
+
+#c {
+	background-color: rgb(212, 207, 199);
+}
+
+#d {
+	background-color: rgb(74, 69, 60);
+}
+
+#e {
+	background-color: rgb(146, 141, 131);
+}
+

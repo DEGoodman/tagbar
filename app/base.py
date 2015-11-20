@@ -8,7 +8,7 @@ import sys
 def main():
     ''' we already have some test images. Commenting out new downloads until this feature is finished.'''
     cur = os.getcwd()
-    img_dir = cur + '/images/'
+    img_dir = cur + '/app/static/images/'
     process.compile(img_dir + "Average.jpg")
 
 

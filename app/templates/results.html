@@ -1,22 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="cover-container">
+  <div class="masthead clearfix">
+    <div class="inner">
+      <h3 class="masthead-brand">Tagbar</h3>
+      <nav>
+        <ul class="nav masthead-nav">
+          <li><a href="/index">Home</a></li>
+          <li><a href="/query">Search</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
     <h1>You searched something!</h1>
     <div> You searched for {{ hashtag }}</div>
     <div> The most common colors are: {{ colors }}</div>
     <br />
     <!-- backgrounds -->
-    <link rel="stylesheet" type="text/css" href="../static/colors.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/colors.css" />
     <h3>Direct results</h3>
-    <div id="a" class="col_area">#1</div>
-    <div id="b" class="col_area">#2</div>
-    <div id="c" class="col_area">#3</div>
-    <div id="d" class="col_area">#4</div>
-    <div id="e" class="col_area">#5</div>
+    <div class="color-swatches">
+      <div id="a" class="color-swatch"></div>
+      <div id="b" class="color-swatch"></div>
+      <div id="c" class="color-swatch"></div>
+      <div id="d" class="color-swatch"></div>
+      <div id="e" class="color-swatch"></div>
+    </div>
     <br />
     <h3>Interpreted results</h3>
-    <div id="f" class="col_area">#1</div>
-    <div id="g" class="col_area">#2</div>
-    <div id="h" class="col_area">#3</div>
-    <div id="i" class="col_area">#4</div>
-    <div id="j" class="col_area">#5</div>
+    <div class="color-swatches">
+      <div id="f" class="color-swatch"></div>
+      <div id="g" class="color-swatch"></div>
+      <div id="h" class="color-swatch"></div>
+      <div id="i" class="color-swatch"></div>
+      <div id="j" class="color-swatch"></div>
+    </div>
 {% endblock %}

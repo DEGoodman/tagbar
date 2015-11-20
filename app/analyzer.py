@@ -39,4 +39,4 @@ class Analyze():
         # Generate, save and preview final image
         out=Image.fromarray(arr,mode="RGB")
         out.save(self.img_dir + "Average.jpg")
-        out.show()
+        # out.show()
