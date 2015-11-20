@@ -3,8 +3,7 @@ import os
 from pprint import pprint
 
 def make(data):
-    pprint(data)
-    f = open(os.getcwd() + '/app/static/colors.css', 'w')
+    f = open(os.getcwd() + '/app/static/css/colors.css', 'w')
     pos_base = ['a', 'b', 'c', 'd', 'e']
     num = 0
     # not sure why data is a nested list
