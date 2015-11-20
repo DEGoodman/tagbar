@@ -1,6 +1,6 @@
 from instagram.client import InstagramAPI
 from pprint import pprint
-import ConfigParser
+from ConfigParser import SafeConfigParser
 import os
 import requests
 import sys
@@ -8,15 +8,16 @@ import urllib
 
 class Setup:
     def __init__(self, tag_name):
-        # import keys
-        config = ConfigParser.RawConfigParser()
-        config.read("settings.cfg")
-        self.client_id = config.get('instagram', 'client_id') # IG client id (settings.cfg)
-        self.client_secret = config.get('instagram', 'client_secret') # IG client secret (^)
-        self.api = InstagramAPI(client_id=self.client_id, client_secret=self.client_secret)
-
         #system vars
         self.cur = os.getcwd()
+
+        # import keys
+        config = SafeConfigParser()
+        config.read(self.cur + '/app/settings.ini')
+        client_id = config.get('Instagram', 'client_id') # IG client id (settings.ini)
+        client_secret = config.get('Instagram', 'client_secret') # IG client secret (^)
+        self.api = InstagramAPI(client_id=client_id, client_secret=client_secret)
+
         self.images = self.cur + '/app/static/images/'
         self.housekeeping()
         self.tag_name=tag_name

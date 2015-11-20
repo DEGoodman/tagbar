@@ -1,0 +1,24 @@
+<html>
+    <head>
+      <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" type="text/css" href="../static/main.css" />
+      {% if title and state %}
+      <title>{{ title }} - {{ state }}</title>
+      {% else %}
+      <title>Welcome to the tagbar</title>
+      {% endif %}
+    </head>
+  <body>
+    <!-- <div>Tag search: <a href="/index">Home</a></div> -->
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>
