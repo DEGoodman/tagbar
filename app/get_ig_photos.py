@@ -24,7 +24,7 @@ class Setup:
         pprint("looking for \'%s\'..." % self.tag_name)
         # return last photo of tag
         # this is because the colors turn out better if only one image is used
-        self.recent = self.api.tag_recent_media(4, 1000000000, self.tag_name)
+        self.recent = self.api.tag_recent_media(2, 1000000000, self.tag_name)
         # recent[0] is list of returned media
         for media in self.recent[0]:
             self.keep(media.images['standard_resolution'].url)
