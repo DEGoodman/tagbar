@@ -31,7 +31,8 @@ class Analyze():
         # Build up average pixel intensities, casting each image as an array of floats
         for im in imlist:
             imarr=numpy.array(Image.open(im),dtype=numpy.float)
-            arr=arr+imarr/N
+            # arr=arr+imarr/N
+            arr += imarr
 
         # Round values in array and cast as 8-bit integer
         arr=numpy.array(numpy.round(arr),dtype=numpy.uint8)
@@ -39,4 +40,4 @@ class Analyze():
         # Generate, save and preview final image
         out=Image.fromarray(arr,mode="RGB")
         out.save(self.img_dir + "Average.jpg")
-        # out.show()
+        out.show()
