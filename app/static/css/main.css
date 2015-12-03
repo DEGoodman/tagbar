@@ -1,3 +1,18 @@
 input {
     color:#000;
 }
+
+.color-swatches {
+	/*margin: 5px 0px -5px 0px;*/
+	width:100%;
+  margin: 0 auto;
+	/*overflow:hidden;*/
+}
+.color-swatch {
+	float: left;
+	margin: 0px 5px;
+	border-radius: 3px;
+	width: 18%;
+	height: 140px;
+  padding: 56px 0;
+}
