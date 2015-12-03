@@ -21,13 +21,6 @@ def make(data):
         f.write(';\n}\n\n')
         num += 1
 
-
-    # jdata = []
-    # with open(os.getcwd() + '/app/static/pallete.json', 'r') as jfile:
-    #     for line in jfile:
-    #         jdata.append(json.loads(line))
-
-
     pos_comp = ['f', 'g', 'h', 'i', 'j']
     num = 0
     newcols = comp_cols(data)
@@ -38,7 +31,6 @@ def comp_cols(data):
     # hex converter
     prim = data[0][0][1]
     hcol = '%02x%02x%02x' % prim
-    print("hcol: %s" % hcol)
     with open(os.getcwd() + '/app/static/pallete.json', 'r') as infh:
         for jdata in json_parse(infh):
             # process object
