@@ -16,3 +16,13 @@ input {
 	height: 140px;
   padding: 56px 0;
 }
+
+.note {
+  margin-top: 200px;
+  margin-bottom: -100px;
+  font-size: 0.8em;
+}
+
+#loading {
+  background: url(app/static/loading.gif);
+}

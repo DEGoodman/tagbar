@@ -37,7 +37,6 @@ def results():
     state = 'dev'
     cols = request.args.get('main_cols')
     tups = make_tuple(cols)
-    print("tups: %s" % tups)
     tlist = []
     hlist = []
     for t in tups:

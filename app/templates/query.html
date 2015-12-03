@@ -20,7 +20,8 @@
       <p class="lead">
           Please enter a hashtag:<br>
           {{ form.tag(size=80) }}<br>
-          <p><input id="searchInput" type="submit" value="Search" class="btn btn-lg btn-default"></p>
+          <p><input id="searchInput" type="submit" value="Search" class="btn btn-lg btn-default" onclick="$('#loading').show();"></p>
       </p>
   </form>
+  <div id="loading" style="display:none;">Loading!</div>
 {% endblock %}

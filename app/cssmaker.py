@@ -35,7 +35,8 @@ def comp_cols(data):
     with open(os.getcwd() + '/app/static/pallete.json', 'r') as infh:
         for jdata in json_parse(infh):
             # process object
-            pprint(jdata)
+            # pprint(jdata)
+            pass
 
 def json_parse(fileobj, decoder=JSONDecoder(), buffersize=2048):
     buffer = ''
