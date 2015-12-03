@@ -5,6 +5,7 @@ from .get_ig_photos import Setup
 from .analyzer import Analyze
 import process
 import cssmaker
+import re
 
 
 @app.route('/')
@@ -33,7 +34,13 @@ def search():
 @app.route('/results')
 def results():
     state = 'dev'
+    cols = request.args.get('main_cols')
+    prim = cols[10:20]
+    hcol = '%02x%02x%02x' % tuple(int(v) for v in re.findall("[0-9]+", prim))
+    # hcol = ""
     return render_template('results.html',
                            title='tagbar',
                            hashtag=request.args.get('tag'),
-                           colors=request.args.get('main_cols'))
+                           colors=request.args.get('main_cols'),
+                           primary=prim,
+                           hexcol=hcol)
