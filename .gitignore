@@ -1,9 +1,9 @@
 venv/
 *.pyc
-images/
-js/
-*bootstrap*
+#images/
+#js/
+#*bootstrap*
 # comment out both below for heroku pushes
 #*settings*
 #*config*
-*colors.css*
+#*colors.css*
