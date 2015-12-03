@@ -22,8 +22,8 @@ class Setup:
         self.housekeeping()
         self.tag_name=tag_name
         pprint("looking for \'%s\'..." % self.tag_name)
-        # download 10, but only one image is used at a time
-        self.recent = self.api.tag_recent_media(10, 1000000000, self.tag_name)
+        # download 5, but only one image is used at a time
+        self.recent = self.api.tag_recent_media(5, 1000000000, self.tag_name)
         # recent[0] is list of returned media
         for media in self.recent[0]:
             self.keep(media.images['standard_resolution'].url)

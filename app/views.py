@@ -4,6 +4,7 @@ from app import app
 from .forms import TagForm
 from .get_ig_photos import Setup
 from .analyzer import Analyze
+from .palletizer import Palletize
 import process
 import cssmaker
 import re
