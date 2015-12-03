@@ -1,4 +1,6 @@
+import json
 import os
+import re
 
 from pprint import pprint
 
@@ -16,6 +18,16 @@ def make(data):
         f.write(str(col))
         f.write(';\n}\n\n')
         num += 1
+
+    # hex converter
+    prim = data[0][0][1]
+    hcol = '%02x%02x%02x' % prim
+    # primstr = cols[8:28]
+    # primtrim = str(re.findall("\([^\(\r\n\)]*\)", primstr))
+    # primtup = tuple(int(v) for v in re.findall("[0-9]+", primtrim))
+    # hcol = '%02x%02x%02x' % primtup
+    with open(os.getcwd() + '/app/static/pallete.json') as j:
+        print("we opened a json file!")
 
     pos_comp = ['f', 'g', 'h', 'i', 'j']
     num = 0
