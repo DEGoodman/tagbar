@@ -1,3 +1,4 @@
+from ast import literal_eval as make_tuple
 from flask import request, render_template, flash, redirect, url_for
 from app import app
 from .forms import TagForm
@@ -35,13 +36,20 @@ def search():
 def results():
     state = 'dev'
     cols = request.args.get('main_cols')
-    primstr = cols[8:28]
-    primtrim = str(re.findall("\([^\(\r\n\)]*\)", primstr))
-    primtup = tuple(int(v) for v in re.findall("[0-9]+", primtrim))
-    hcol = '%02x%02x%02x' % primtup
+    tups = make_tuple(cols)
+    print("tups: %s" % tups)
+    tlist = []
+    hlist = []
+    for t in tups:
+        tlist.append(t[1])
+        hlist.append('%02x%02x%02x' % t[1])
+    primcol = tlist[0]
+
+    hcol = '%02x%02x%02x' % primcol
     return render_template('results.html',
                            title='tagbar',
                            hashtag=request.args.get('tag'),
                            colors=request.args.get('main_cols'),
-                           primary=primtup,
-                           hexcol=hcol)
+                           primary=primcol,
+                           hexcol=hcol,
+                           hcs = hlist)

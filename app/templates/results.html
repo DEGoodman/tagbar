@@ -19,16 +19,15 @@
     <!-- backgrounds -->
     <link rel="stylesheet" type="text/css" href="../static/css/colors.css" />
     <h3>Direct results</h3>
-    <div class="set">
-      <p>The base color is rgb: {{ primary }}</p>
-      <p>The base color is hex: #{{ hexcol }}</p>
+    <div class="set"> The base color is
+      <p>RGB {{ primary }} or #{{ hexcol }}</p>
     </div>
     <div class="color-swatches">
-      <div id="a" class="color-swatch">#{{ a }}</div>
-      <div id="b" class="color-swatch">#{{ b }}</div>
-      <div id="c" class="color-swatch">#{{ c }}</div>
-      <div id="d" class="color-swatch">#{{ d }}</div>
-      <div id="e" class="color-swatch">#{{ e }}</div>
+      <div id="a" class="color-swatch">#{{ hcs[0] }}</div>
+      <div id="b" class="color-swatch">#{{ hcs[1] }}</div>
+      <div id="c" class="color-swatch">#{{ hcs[2] }}</div>
+      <div id="d" class="color-swatch">#{{ hcs[3] }}</div>
+      <div id="e" class="color-swatch">#{{ hcs[4] }}</div>
     </div>
     <br />
     <!-- <h3>Interpreted results</h3>

@@ -2,6 +2,7 @@ import json
 import os
 import re
 
+from ast import literal_eval as make_tuple
 from functools import partial
 from json import JSONDecoder
 from pprint import pprint
