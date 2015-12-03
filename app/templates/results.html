@@ -13,9 +13,9 @@
       </nav>
     </div>
   </div>
-    <h1>You searched something!</h1>
-    <div> You searched for {{ hashtag }}</div>
-    <div> The most common colors are: {{ colors }}</div>
+    <h1>You searched for {{ hashtag }}!</h1>
+    <div>I hope you enjoy the results </div>
+    <!-- <div> The most common colors are: {{ colors }}</div> -->
     <br />
     <!-- backgrounds -->
     <link rel="stylesheet" type="text/css" href="../static/css/colors.css" />
@@ -28,6 +28,10 @@
       <div id="e" class="color-swatch"></div>
     </div>
     <br />
+    <div class="set">
+      <p>The base color is rgb: {{ primary }}</p>
+      <p>The base color is hex: #{{ hexcol }}</p>
+    </div>
     <h3>Interpreted results</h3>
     <div class="color-swatches">
       <div id="f" class="color-swatch"></div>
