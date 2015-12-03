@@ -6,3 +6,4 @@ js/
 # comment out both below for heroku pushes
 *settings*
 *config*
+colors.css
