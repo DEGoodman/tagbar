@@ -1,20 +1,40 @@
 #a {
-	background-color: rgb(40, 6, 8);
+	background-color: rgb(93, 42, 34);
 }
 
 #b {
-	background-color: rgb(61, 45, 64);
+	background-color: rgb(208, 169, 60);
 }
 
 #c {
-	background-color: rgb(66, 74, 144);
+	background-color: rgb(163, 102, 42);
 }
 
 #d {
-	background-color: rgb(59, 132, 219);
+	background-color: rgb(4, 2, 2);
 }
 
 #e {
-	background-color: rgb(233, 237, 239);
+	background-color: rgb(209, 196, 167);
+}
+
+#f {
+	background-color: #f44336;
+}
+
+#g {
+	background-color: #ffebee;
+}
+
+#h {
+	background-color: #ffcdd2;
+}
+
+#i {
+	background-color: #ef5350;
+}
+
+#j {
+	background-color: #b71c1c;
 }
 

@@ -18,11 +18,15 @@ input {
 }
 
 .note {
-  margin-top: 200px;
-  margin-bottom: -100px;
+  margin-top: 180px;
+  margin-bottom: 0px;
   font-size: 0.8em;
 }
 
 #loading {
   font-size: 2em;
+}
+
+h3 {
+  padding-top: 20px;
 }
