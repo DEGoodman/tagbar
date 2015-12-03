@@ -35,12 +35,13 @@ def search():
 def results():
     state = 'dev'
     cols = request.args.get('main_cols')
-    prim = cols[10:20]
-    hcol = '%02x%02x%02x' % tuple(int(v) for v in re.findall("[0-9]+", prim))
-    # hcol = ""
+    primstr = cols[8:28]
+    primtrim = str(re.findall("\([^\(\r\n\)]*\)", primstr))
+    primtup = tuple(int(v) for v in re.findall("[0-9]+", primtrim))
+    hcol = '%02x%02x%02x' % primtup
     return render_template('results.html',
                            title='tagbar',
                            hashtag=request.args.get('tag'),
                            colors=request.args.get('main_cols'),
-                           primary=prim,
+                           primary=primtup,
                            hexcol=hcol)

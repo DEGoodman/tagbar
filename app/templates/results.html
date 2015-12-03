@@ -8,7 +8,6 @@
         <ul class="nav masthead-nav">
           <li><a href="/index">Home</a></li>
           <li><a href="/query">Search</a></li>
-          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -20,6 +19,10 @@
     <!-- backgrounds -->
     <link rel="stylesheet" type="text/css" href="../static/css/colors.css" />
     <h3>Direct results</h3>
+    <div class="set">
+      <p>The base color is rgb: {{ primary }}</p>
+      <p>The base color is hex: #{{ hexcol }}</p>
+    </div>
     <div class="color-swatches">
       <div id="a" class="color-swatch"></div>
       <div id="b" class="color-swatch"></div>
@@ -28,16 +31,12 @@
       <div id="e" class="color-swatch"></div>
     </div>
     <br />
-    <div class="set">
-      <p>The base color is rgb: {{ primary }}</p>
-      <p>The base color is hex: #{{ hexcol }}</p>
-    </div>
-    <h3>Interpreted results</h3>
+    <!-- <h3>Interpreted results</h3>
     <div class="color-swatches">
       <div id="f" class="color-swatch"></div>
       <div id="g" class="color-swatch"></div>
       <div id="h" class="color-swatch"></div>
       <div id="i" class="color-swatch"></div>
       <div id="j" class="color-swatch"></div>
-    </div>
+    </div> -->
 {% endblock %}

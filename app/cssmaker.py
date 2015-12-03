@@ -1,5 +1,9 @@
+import json
 import os
+import re
 
+from functools import partial
+from json import JSONDecoder
 from pprint import pprint
 
 def make(data):
@@ -24,4 +28,23 @@ def make(data):
     f.close()
 
 def comp_cols(data):
-    pass
+    # hex converter
+    prim = data[0][0][1]
+    hcol = '%02x%02x%02x' % prim
+    with open(os.getcwd() + '/app/static/pallete.json', 'r') as infh:
+        for jdata in json_parse(infh):
+            # process object
+            pprint(jdata)
+
+def json_parse(fileobj, decoder=JSONDecoder(), buffersize=2048):
+    buffer = ''
+    for chunk in iter(partial(fileobj.read, buffersize), ''):
+         buffer += chunk
+         while buffer:
+             try:
+                 result, index = decoder.raw_decode(buffer)
+                 yield result
+                 buffer = buffer[index:]
+             except ValueError:
+                 # Not enough data to decode, read more
+                 break
