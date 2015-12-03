@@ -2,6 +2,8 @@ import json
 import os
 import re
 
+from functools import partial
+from json import JSONDecoder
 from pprint import pprint
 
 def make(data):
@@ -19,15 +21,12 @@ def make(data):
         f.write(';\n}\n\n')
         num += 1
 
-    # hex converter
-    prim = data[0][0][1]
-    hcol = '%02x%02x%02x' % prim
-    # primstr = cols[8:28]
-    # primtrim = str(re.findall("\([^\(\r\n\)]*\)", primstr))
-    # primtup = tuple(int(v) for v in re.findall("[0-9]+", primtrim))
-    # hcol = '%02x%02x%02x' % primtup
-    with open(os.getcwd() + '/app/static/pallete.json') as j:
-        print("we opened a json file!")
+
+    # jdata = []
+    # with open(os.getcwd() + '/app/static/pallete.json', 'r') as jfile:
+    #     for line in jfile:
+    #         jdata.append(json.loads(line))
+
 
     pos_comp = ['f', 'g', 'h', 'i', 'j']
     num = 0
@@ -36,4 +35,24 @@ def make(data):
     f.close()
 
 def comp_cols(data):
-    pass
+    # hex converter
+    prim = data[0][0][1]
+    hcol = '%02x%02x%02x' % prim
+    print("hcol: %s" % hcol)
+    with open(os.getcwd() + '/app/static/pallete.json', 'r') as infh:
+        for jdata in json_parse(infh):
+            # process object
+            pprint(jdata)
+
+def json_parse(fileobj, decoder=JSONDecoder(), buffersize=2048):
+    buffer = ''
+    for chunk in iter(partial(fileobj.read, buffersize), ''):
+         buffer += chunk
+         while buffer:
+             try:
+                 result, index = decoder.raw_decode(buffer)
+                 yield result
+                 buffer = buffer[index:]
+             except ValueError:
+                 # Not enough data to decode, read more
+                 break
