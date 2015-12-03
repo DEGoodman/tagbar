@@ -1,7 +1,7 @@
 import os
 import json
 
-
+from functools import partial
 from pprint import pprint
 
 def Palletize(base):
@@ -10,7 +10,10 @@ def Palletize(base):
     print(rgb)
     jfile = open(os.getcwd() + '/app/static/pallete.json', 'r')
     rgb_from_json = json_import_and_convert(jfile)
-    vals = find_closest(rgb, rgb_from_json)
+    print(rgb_from_json)
+    # nearest = min(rgb_from_json, key=partial(colorDifference, rgb))
+    print("nearest color")
+    # print(nearest)
     jfile.close()
 
 
@@ -27,14 +30,19 @@ def json_import_and_convert(file):
     jlist = []
     j_dat = json.load(file)
     for i in j_dat['pallete']:
-        jlist.append(i['base'])
-    # pprint(jlist)
+        jlist.append({'name':i['name'],'base':i['base']})
     newj = []
+    pprint("jlist: %s" % jlist)
     for hd in jlist:
-        if len(hd) == 6:
-            newj.append(hex_to_rgb(hd))
+        if len(hd['base']) == 6:
+            newj.append({'name':hd['name'], 'base':hex_to_rgb(hd['base'])})
     pprint("newj: %s" % newj)
     return newj
 
-def find_closest(target, lst):
-    print("looking for closest to %s in %s" % (target, lst))
+def colorDifference(testColor, otherColor):
+    difference = 0
+    difference += abs(testColor[0]-otherColor[0])
+    difference += abs(testColor[1]-otherColor[1])
+    difference += abs(testColor[2]-otherColor[2])
+
+    return difference
