@@ -1,5 +1,6 @@
 import os
 import json
+import math
 
 from functools import partial
 from pprint import pprint
@@ -56,10 +57,12 @@ def json_import_and_convert(j_dat):
     return newj
 
 def colorDifference(testColor, otherColor):
-    difference = 0
-    difference += abs(testColor[0]-otherColor[0])
-    difference += abs(testColor[1]-otherColor[1])
-    difference += abs(testColor[2]-otherColor[2])
+    # algorithm: sqrt( (r1 - r2)2 + (g1 - g2)2 + (b1 - b2)2 )
+    # difference = 0
+    # difference += abs(testColor[0]-otherColor[0])
+    # difference += abs(testColor[1]-otherColor[1])
+    # difference += abs(testColor[2]-otherColor[2])
+    difference = math.sqrt((testColor[0]-otherColor[0])**2 + (testColor[1]-otherColor[1])**2 + (testColor[2]-otherColor[2])**2)
 
     return difference
 
