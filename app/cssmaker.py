@@ -23,4 +23,4 @@ def make(data):
         num += 1
     f.close()
 
-    Palletize('%02x%02x%02x' % data[0][0][1])
+    return Palletize('%02x%02x%02x' % data[0][0][1])

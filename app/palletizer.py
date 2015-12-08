@@ -30,10 +30,11 @@ def Palletize(base):
             pallete.append(obj['shades'][4]['5'])
             pallete.append(obj['shades'][9]['10'])
 
-    print("pallete")
-    pprint(pallete)
+    # print("pallete")
+    # pprint(pallete)
     jfile.close()
     pbuild(pallete)
+    return pallete
 
 
 def hex_to_rgb(colorstring):
