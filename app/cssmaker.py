@@ -21,10 +21,6 @@ def make(data):
         f.write(str(col))
         f.write(';\n}\n\n')
         num += 1
-
-    pos_comp = ['f', 'g', 'h', 'i', 'j']
-    num = 0
-
-    Palletize('%02x%02x%02x' % data[0][0][1])
-    # newcols = comp_cols(data)
     f.close()
+
+    return Palletize('%02x%02x%02x' % data[0][0][1])

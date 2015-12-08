@@ -27,8 +27,12 @@ def search():
         Setup(form.tag.data)
         Analyze()
         cols = [process.compile()]
-        cssmaker.make(cols)
-        return redirect(url_for('results',tag=form.tag.data, main_cols=cols))
+        pcols = [cssmaker.make(cols)]
+        print("cols:")
+        print(cols)
+        print("pcols:")
+        print(pcols)
+        return redirect(url_for('results',tag=form.tag.data, main_cols=cols, p_cols=pcols))
     return render_template('query.html',
                            title='Tag Search',
                            form=form)
@@ -44,12 +48,14 @@ def results():
         tlist.append(t[1])
         hlist.append('%02x%02x%02x' % t[1])
     primcol = tlist[0]
-
     hcol = '%02x%02x%02x' % primcol
+    pallete = request.args.get('p_cols')
+    print("results pallete: %s" % pallete)
     return render_template('results.html',
                            title='tagbar',
                            hashtag=request.args.get('tag'),
                            colors=request.args.get('main_cols'),
                            primary=primcol,
                            hexcol=hcol,
-                           hcs = hlist)
+                           hcs = hlist,
+                           pcl=pallete)

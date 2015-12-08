@@ -30,9 +30,11 @@ def Palletize(base):
             pallete.append(obj['shades'][4]['5'])
             pallete.append(obj['shades'][9]['10'])
 
-    print("pallete")
-    pprint(pallete)
+    # print("pallete")
+    # pprint(pallete)
     jfile.close()
+    pbuild(pallete)
+    return pallete
 
 
 def hex_to_rgb(colorstring):
@@ -60,3 +62,18 @@ def colorDifference(testColor, otherColor):
     difference += abs(testColor[2]-otherColor[2])
 
     return difference
+
+def pbuild(lst):
+    f = open(os.getcwd() + '/app/static/css/colors.css', 'a')
+
+    pos_base = ['f', 'g', 'h', 'i', 'j']
+    num = 0
+    # not sure why data is a nested list
+    for col in lst:
+        f.write('#%s' % pos_base[num])
+        f.write(' {\n\tbackground-color: #') # nastiness
+        f.write(str(col))
+        f.write(';\n}\n\n')
+        num += 1
+
+    f.close()
