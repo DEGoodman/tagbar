@@ -28,14 +28,15 @@ def search():
         Analyze()
         cols = [process.compile()]
         pcols = [cssmaker.make(cols)]
-        print("cols:")
-        print(cols)
-        print("pcols:")
-        print(pcols)
         return redirect(url_for('results',tag=form.tag.data, main_cols=cols, p_cols=pcols))
     return render_template('query.html',
                            title='Tag Search',
                            form=form)
+
+# @app.route('/delta', method=['GET', 'POST'])
+# def delts():
+#     # choose one random photo from downloaded photos
+#     pass
 
 @app.route('/results')
 def results():

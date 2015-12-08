@@ -1,3 +1,6 @@
+from __future__ import division
+
+import colorsys
 import os
 import json
 import math
@@ -9,19 +12,28 @@ def Palletize(base):
     rgb = hex_to_rgb(base)
     print("Palletizer base rgb: ")
     print(rgb)
+    print("rgb floats:")
+    collist = [rgb[0]/255, rgb[1]/255, rgb[2]/255]
+    print(collist)
+    hsv = colorsys.rgb_to_hsv(collist[0], collist[1], collist[2])
+    print("Palletizer base hsv:")
+    print(hsv)
     jfile = open(os.getcwd() + '/app/static/pallete.json', 'r')
     jdat = json.load(jfile)
     rgb_from_json = json_import_and_convert(jdat)
 
     # find closest
+    # nearest = rgb_from_json[0]
+    # for item in rgb_from_json:
+    #     if colorDifference(item['base'], rgb) < colorDifference(nearest['base'], rgb):
+    #         nearest = item
+    scale = betterDif(hsv)
     nearest = rgb_from_json[0]
     for item in rgb_from_json:
-        if colorDifference(item['base'], rgb) < colorDifference(nearest['base'], rgb):
+        if item['name'] == scale:
             nearest = item
-    print("nearest color")
-    print(nearest)
+            print(nearest)
 
-    # get shades
     pallete = []
     for obj in jdat['pallete']:
         if obj['name'] == nearest['name']:
@@ -57,11 +69,6 @@ def json_import_and_convert(j_dat):
     return newj
 
 def colorDifference(testColor, otherColor):
-    # algorithm: sqrt( (r1 - r2)2 + (g1 - g2)2 + (b1 - b2)2 )
-    # difference = 0
-    # difference += abs(testColor[0]-otherColor[0])
-    # difference += abs(testColor[1]-otherColor[1])
-    # difference += abs(testColor[2]-otherColor[2])
     difference = math.sqrt((testColor[0]-otherColor[0])**2 + (testColor[1]-otherColor[1])**2 + (testColor[2]-otherColor[2])**2)
 
     return difference
@@ -80,3 +87,57 @@ def pbuild(lst):
         num += 1
 
     f.close()
+
+# check hsl values
+def betterDif(base):
+    # lightness first
+    print("h: %s, s: %s, v: %s" % (base[0], base[1], base[2]))
+    if base[2] <= 0.1 or base[2] >= 0.95:
+        print("greyscale")
+        return "Grey"
+    # saturation
+    elif base[1] <= 0.1:
+        print("greyscale")
+        return "Grey"
+    # color
+    else:
+        print("color!")
+        if base[0] <= 21/365 or base[0] >= 350/360:
+            print("Red")
+            return "Red"
+        elif base[0] >= 331/360:
+            print("Pink")
+            return "Pink"
+        elif base[0] >= 281/360:
+            print("Purple")
+            return "Purple"
+        elif base[0] >= 241/360:
+            print("Deep Purple")
+            return "Deep Purple"
+        elif base[0] >= 221/360:
+            print("Indigo")
+            return "Indigo"
+        elif base[0] >= 201/360:
+            print("Blue")
+            return "Blue"
+        elif base[0] >= 170/360:
+            print("Cyan")
+            return "Cyan"
+        elif base[0] >= 141/360:
+            print("Teal")
+            return "Teal"
+        elif base[0] >= 81/360:
+            print("Green")
+            return "Green"
+        elif base[0] >= 61/360:
+            print("Lime")
+            return "Lime"
+        elif base[0] >= 51/360:
+            print("Yellow")
+            return "Yellow"
+        elif base[0] >= 35/360:
+            print("Amber")
+            return "Amber"
+        else:
+            print("Brown")
+            return "Brown"
