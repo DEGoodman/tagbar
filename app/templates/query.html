@@ -2,14 +2,26 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="cover-container">
+  <div class="masthead clearfix">
+    <div class="inner">
+      <h3 class="masthead-brand">Tagbar</h3>
+      <nav>
+        <ul class="nav masthead-nav">
+          <li><a href="/index">Home</a></li>
+          <li class="active"><a href="/query">Search</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
   <h1>Tag Search</h1>
   <form action="" method="post" name="tagsearch">
       {{ form.hidden_tag() }}
-      <p>
-          Please enter your hashtag:<br>
-          # {{ form.tag(size=80) }}<br>
+      <p class="lead">
+          Please enter a hashtag:<br>
+          {{ form.tag(size=80) }}<br>
+          <p><input id="searchInput" type="submit" value="Search" class="btn btn-lg btn-default" onclick="$('#loading').show();"></p>
       </p>
-      <p>{{ form.remember_me }} Save Search</p>
-      <p><input type="submit" value="Tag Search"></p>
   </form>
+  <div id="loading" style="display:none;">Loading!</div>
 {% endblock %}
