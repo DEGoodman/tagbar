@@ -11,6 +11,8 @@ class Analyze():
         self.cur = os.getcwd()
         self.img_dir = self.cur + '/app/static/images/'
         self.imlist = []
+        self.getImages()
+        self.combine()
 
     def getImages(self):
         # for img in self.filelist:
