@@ -11,8 +11,6 @@ class Analyze():
         self.cur = os.getcwd()
         self.img_dir = self.cur + '/app/static/images/'
         self.imlist = []
-        self.getImages()
-        self.combine()
 
     def getImages(self):
         # for img in self.filelist:
@@ -39,27 +37,3 @@ class Analyze():
         # Generate, save and preview final image
         out=Image.fromarray(arr,mode="RGB")
         out.save(self.img_dir + "Average.jpg")
-        # out.show()
-
-        # new combine method
-        # all_pixels = {}
-        # for im in imlist:
-        #     i = Image.open(im)
-        #     pixels=i.load()
-        #     for x in range(w):
-        #         for y in range(h):
-        #             cpixel = pixels[x, y]
-        #             all_pixels.setdefault(cpixel, 0)
-        #             all_pixels[cpixel] += 1
-        #             # all_pixels[cpixel] = all_pixels.get(cpixel, 0) + 1
-        #
-        #
-        # print("got pixels. collating data")
-        # counts = [(j,i) for i,j in all_pixels.items()]
-        # count, max_elm = max(counts)
-        # pprint(sorted(counts))
-
-        # result = dict()
-        # for tup in set(all_pixels):
-        #     result[tup] = all_pixels.count(tup)
-        # pprint(result)

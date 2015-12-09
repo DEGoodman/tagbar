@@ -25,21 +25,31 @@ def search():
         flash("Provided tag: %s" % form.tag.data)
         # the below line will import new images by tag. Commenting out for dev
         Setup(form.tag.data)
-        Analyze()
+        a = Analyze()
+        a.getImages()
+        a.combine()
         cols = [process.compile()]
         pcols = [cssmaker.make(cols)]
-        return redirect(url_for('results',tag=form.tag.data, main_cols=cols, p_cols=pcols))
+
+        return redirect(url_for('results',tag=form.tag.data, main_cols=cols, p_cols=pcols, state="new"))
     return render_template('query.html',
                            title='Tag Search',
                            form=form)
 
-# @app.route('/delta', method=['GET', 'POST'])
-# def delts():
-#     # choose one random photo from downloaded photos
-#     pass
-
 @app.route('/results')
 def results():
+    # change results
+    # if request.args.get('state') is not "new":
+    #     # do not re-download images
+    #     # Setup(form.tag.data)
+    #     a = Analyze()
+    #     # a.getImages()
+    #     a.combine()
+    #     cols = [process.compile()]
+    #     pcols = [cssmaker.make(cols)]
+    #
+    #     return redirect(url_for('results',tag=request.args.get('tag'), main_cols=cols, p_cols=pcols, state="refresh"))
+
     state = 'dev'
     cols = request.args.get('main_cols')
     tups = make_tuple(cols)

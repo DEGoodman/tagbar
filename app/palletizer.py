@@ -22,11 +22,6 @@ def Palletize(base):
     jdat = json.load(jfile)
     rgb_from_json = json_import_and_convert(jdat)
 
-    # find closest
-    # nearest = rgb_from_json[0]
-    # for item in rgb_from_json:
-    #     if colorDifference(item['base'], rgb) < colorDifference(nearest['base'], rgb):
-    #         nearest = item
     scale = betterDif(hsv)
     nearest = rgb_from_json[0]
     for item in rgb_from_json:
@@ -43,8 +38,6 @@ def Palletize(base):
             pallete.append(obj['shades'][4]['5'])
             pallete.append(obj['shades'][9]['10'])
 
-    # print("pallete")
-    # pprint(pallete)
     jfile.close()
     pbuild(pallete)
     return pallete
@@ -67,11 +60,6 @@ def json_import_and_convert(j_dat):
         if len(hd['base']) == 6:
             newj.append({'name':hd['name'], 'base':hex_to_rgb(hd['base'])})
     return newj
-
-def colorDifference(testColor, otherColor):
-    difference = math.sqrt((testColor[0]-otherColor[0])**2 + (testColor[1]-otherColor[1])**2 + (testColor[2]-otherColor[2])**2)
-
-    return difference
 
 def pbuild(lst):
     f = open(os.getcwd() + '/app/static/css/colors.css', 'a')
