@@ -4,6 +4,6 @@ images/
 #js/
 #*bootstrap*
 # comment out both below for heroku pushes
-*settings*
-*config*
+#*settings*
+#*config*
 *colors.css*
