@@ -80,7 +80,7 @@ def pbuild(lst):
 def betterDif(base):
     # lightness first
     print("h: %s, s: %s, v: %s" % (base[0], base[1], base[2]))
-    if base[2] <= 0.1 or base[2] >= 0.95:
+    if base[2] <= 0.12 or base[2] >= 0.97:
         print("greyscale")
         return "Grey"
     # saturation
