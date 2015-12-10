@@ -8,6 +8,7 @@ from .palletizer import Palletize
 import process
 import cssmaker
 import re
+import random
 
 
 @app.route('/')
@@ -23,23 +24,24 @@ def search():
 		form = TagForm()
 		if form.validate_on_submit():
 				flash("Provided tag: %s" % form.tag.data)
+				t = form.tag.data.split(' ')
+				fix_t = t[0]
 				# the below line will import new images by tag. Commenting out for dev
-				Setup(form.tag.data)
+				Setup(fix_t)
 				Analyze()
 				cols = [process.compile()]
 				pcols = [cssmaker.make(cols)]
 
-				return redirect(url_for('results', tag=form.tag.data, main_cols=cols, p_cols=pcols))
+				return redirect(url_for('results', tag=fix_t, main_cols=cols, p_cols=pcols))
 		return render_template('query.html',
 													 title='Tag Search',
 													 form=form)
 
 @app.route('/results', methods=['GET', 'POST'])
 def results():
-		# form = ButtonForm()
-		# if form.validate_on_submit():
-		# 	pass
-
+		# prevent css caching
+		rand = random.randint(0,2500000)
+		c_cache = "../static/css/colors.css?" + str(rand)
 		cols = request.args.get('main_cols')
 		pallete = request.args.get('p_cols')
 		tups = make_tuple(cols)
@@ -60,4 +62,5 @@ def results():
 													 primary=primcol,
 													 hexcol=hcol,
 													 hcs = hlist,
-													 pcl=pallete)
+													 pcl=pallete,
+													 dt=c_cache)

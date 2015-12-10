@@ -13,11 +13,9 @@
     </div>
   </div>
     <h1>You searched for <em id="resTag">{{ hashtag }}</em></h1>
-    <div>I hope you enjoy the results</div>
-    <!-- <div> The most common colors are: {{ colors }}</div> -->
     <br />
     <!-- backgrounds -->
-    <link rel="stylesheet" type="text/css" href="../static/css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="{{ dt }}" />
     <h3>Direct results</h3>
     <div class="set"> The most common color is
       <p>RGB {{ primary }} or #{{ hexcol }}</p>
@@ -32,7 +30,7 @@
     </div>
     <br />
     <br />
-    <h3 id="tailored">Your Tailored Color Pallete</h3>
+    <h3 id="tailored">Your Tailored Color Palette</h3>
     <br />
     <div class="color-swatches">
       <div id="f" class="color-swatch">#{{ pcl[3:9] }}</div>

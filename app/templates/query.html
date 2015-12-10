@@ -18,7 +18,7 @@
   <form action="" method="post" name="tagsearch">
       {{ form.hidden_tag() }}
       <div class="lead entry">
-          What do you want colors for (in one word)?<br>
+          What do you want colors for?<br>
           <p id="entry" >{{ form.tag(size=20) }}</p>
       </div>
       <p><input id="searchInput" type="submit" value="Search" class="btn btn-lg btn-default" onclick="$('#loading').show();"></p>
