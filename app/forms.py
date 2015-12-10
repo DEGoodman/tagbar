@@ -4,3 +4,6 @@ from wtforms.validators import DataRequired
 
 class TagForm(Form):
     tag = StringField('tag', validators=[DataRequired()])
+
+class ButtonForm(Form):
+    color = StringField('color', validators=[DataRequired()])

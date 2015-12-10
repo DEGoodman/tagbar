@@ -1,11 +1,24 @@
 input {
     color:#000;
+    /*width:200px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;*/
 }
+
+#entry {
+	width:400px;
+	margin-top:10px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
 
 .color-swatches {
 	/*margin: 5px 0px -5px 0px;*/
 	width:100%;
-  margin: 0 auto;
+    margin: 0 auto;
 	/*overflow:hidden;*/
 }
 .color-swatch {
@@ -14,7 +27,9 @@ input {
 	border-radius: 3px;
 	width: 18%;
 	height: 140px;
-  padding: 56px 0;
+    padding: 56px 0;
+    color:white;
+    text-shadow: 2px 2px 1px #000;
 }
 
 .note {
@@ -28,5 +43,29 @@ input {
 }
 
 h3 {
-  padding-top: 20px;
+  margin-top: 20px;
+}
+
+#tailored {
+	margin-top: 130px;
+}
+
+#resTag {
+	font-size:1.3em;
+}
+
+ul {
+	color:#333;
+}
+
+li {
+	color:#333;
+}
+
+a {
+	color:#333;
+}
+
+#searchHeader{
+	margin-top: -10px;
 }

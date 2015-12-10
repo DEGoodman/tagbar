@@ -1,6 +1,10 @@
 # tagbar
 Instagram scraper and photo analyzer.
 
+# In progress:
+ - [ ] change base color to hsl, set ranges, return nearest
+ - [ ] make base colors buttons to re-search
+
 tagbar is a Flask-based webapp where anyone can search for colors representative of any item that has ever been uploaded to Instagram. tagbar will download and analyze recent photos and return a set of colors representative of the provided hashtag, according to [Google's material design principles](https://www.google.com/design/spec/style/color.html).
 
 ##### To run the program
