@@ -1,2 +1,2 @@
 WTF_CSRF_ENABLED = True
-SECRET_KEY = 'boogityboogity'
+SECRET_KEY = <Add secret key>
