@@ -1,6 +1,9 @@
 # tagbar
 Instagram scraper and photo analyzer.
 
+![home page](http://i.imgur.com/5IXrEpq.png)
+![results](http://i.imgur.com/CTCAfaC.png)
+
 # In progress:
  - [ ] change base color to hsl, set ranges, return nearest
  - [ ] make base colors buttons to re-search
